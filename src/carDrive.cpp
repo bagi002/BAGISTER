@@ -126,9 +126,11 @@ void CarDrive::rotateInPlace(bool rotate){
 
 void CarDrive::stopCar(){
     motori->changeSpeedL(50);
-    motori->changeSpeedR(50);
+    motori->changeSpeedR(50); 
     delay(50);
     motori->stopCar();
+    left = STOPCAR;
+    right = STOPCAR;
 }
 
 void CarDrive::siren(int time){

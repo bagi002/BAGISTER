@@ -43,3 +43,8 @@ Istorija verzija:
     -v1.1:
         -omogucen prijem podataka putem Bloututh veze
         - implementiran privremeni sistem ocitavanja dolaznih podataka i kontrole na sonovu njih
+
+    -v1.1.2
+        -ispravljen bag kod nemogucnosti da se dvije koamnde izvrse jedna za drugom poslje zaustavljanja
+        bag je bio u tome jer je falilo menjanje stanja motora u kacije stopCar u zaustavljeno
+        sto je rezultovalo time da se ne pokrenutim motorima ustvari probala mjenjati brzina
