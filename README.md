@@ -48,3 +48,5 @@ Istorija verzija:
         -ispravljen bag kod nemogucnosti da se dvije koamnde izvrse jedna za drugom poslje zaustavljanja
         bag je bio u tome jer je falilo menjanje stanja motora u kacije stopCar u zaustavljeno
         sto je rezultovalo time da se ne pokrenutim motorima ustvari probala mjenjati brzina
+    -V1.2
+        -Dodat fajl joystick.cpp sa kodom za dzojstik implementiran na ESP-32 platformi

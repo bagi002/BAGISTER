@@ -99,9 +99,6 @@ void setup() {
 
   Serial.begin(9600);
 
-    delay(5000);
-    Serial.println("Radim");
-
     while (Serial.available() > 0) {
     Serial.read();  
   }

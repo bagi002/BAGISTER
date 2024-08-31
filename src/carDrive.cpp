@@ -56,6 +56,8 @@ bool CarDrive::reeadMessage(unsigned long message){
 
     command->direction = x;
     command->speed = speed;
+    
+    return true;
 }
 
 void CarDrive::fowardCar(int x){
