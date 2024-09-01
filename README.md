@@ -50,3 +50,7 @@ Istorija verzija:
         sto je rezultovalo time da se ne pokrenutim motorima ustvari probala mjenjati brzina
     -V1.2
         -Dodat fajl joystick.cpp sa kodom za dzojstik implementiran na ESP-32 platformi
+    -v1.3
+        -Obezbjedjivanje komunikacije putem sistema kojim se unosi oznaka za pocetak i kraj komunikacije
+        ovim se izbjegava da slucajno poslati ili neki ne poslati bit narusi kompletnu komunikaciju sto se
+        nerjetko desavalo i uvjek pri paljenju i gasenju zdojstika

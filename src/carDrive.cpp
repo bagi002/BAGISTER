@@ -145,25 +145,25 @@ void CarDrive::rollCar(int speed, bool rotate){
     if(rotate){
         if(left == FOWARDCAR && right == FOWARDCAR){
             motori->changeSpeedL(speed);
-            motori->changeSpeedR(65);
+            motori->changeSpeedR(80);
         }else{
             motori->stopCar();
             delay(50);
             motori->fowardCar(255);
             delay(60);
             motori->fowardLeft(speed);
-            motori->fowardRight(65);
+            motori->fowardRight(80);
         }
     }else{
         if(left == FOWARDCAR && right == FOWARDCAR){
             motori->changeSpeedR(speed);
-            motori->changeSpeedL(65);
+            motori->changeSpeedL(80);
         }else{
             motori->stopCar();
             delay(50);
             motori->fowardCar(255);
             delay(60);
-            motori->fowardLeft(65);
+            motori->fowardLeft(80);
             motori->fowardRight(speed);
         }
     }

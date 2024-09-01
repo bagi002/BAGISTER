@@ -102,23 +102,50 @@ void setup() {
     while (Serial.available() > 0) {
     Serial.read();  
   }
+
+  while(true){
+    if(Serial.available() > 0){
+      if(Serial.read() == 0x12){
+        delay(5);
+        if(Serial.read() == 0x34){
+          delay(5);
+          if(Serial.read() == 0x56){
+            if(Serial.read() == 0x78){
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  while (Serial.available() > 0) {
+    Serial.read();  
+  }  
+
+  Serial.write(0xAB);
 }
 
 void loop() {
 
 
-if (Serial.available() >= 4) {
+if (Serial.available() >= 6) {
+    byte mask1 = Serial.read();
     byte byte1 = Serial.read();
     byte byte2 = Serial.read();
     byte byte3 = Serial.read();
     byte byte4 = Serial.read();
+    byte mask2 = Serial.read();
 
-    unsigned long x = ((unsigned long)byte1 << 24) | ((unsigned long)byte2 << 16) | ((unsigned long)byte3 << 8) | (unsigned long)byte4;
+    if(mask1 == 0xAB && mask2 == 0xCD){
+      unsigned long x = ((unsigned long)byte1 << 24) | ((unsigned long)byte2 << 16) | ((unsigned long)byte3 << 8) | (unsigned long)byte4;
 
-    car->reeadMessage(x);
-    car->controllCar();
-    
-
+      car->reeadMessage(x);
+      car->controllCar();
+    }else{
+      while (Serial.available() > 0) {
+      Serial.read();  
+  }  
+    }
   }
-
 }
