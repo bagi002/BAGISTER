@@ -13,11 +13,16 @@ Oprema:
 
         Napajanje: 2 x 9V (Auto) 6V (Dzojstik)
 
-Specifikacije Softvera
+Specifikacije Softvera:
 
     Komunikacija drajvera sasije i ostalih komponenata vrsi se putem 32-bitne koamnde
-            0x ## ## ## ## (Foward Back Left Right);
-            vrednost bajta predstavlja i brzinu kretanja u tom smijeru
+            0xAB 0x## 0x## 0x## 0x## 0xCD (Foward Back Left Right);
+        Specijalne koamande:
+            0x11 0x22 0x33 0x44 // dzojstik zahtjeva ponovno konektovanje
+            0x04 0x04 0x04 0x04 // automobil salje potvrdu konektovanja
+            0x01 0x23 0x45 0x67 // potvrda da je auto primilo komandu
+            0x0F 0x0F 0x0F 0x0F //zahtjev automobila za restartovanje komunikacije 
+            
 
     __chassis.h__
         Sluzi za osnovnu kontrolu motora na automobilu  te upravljanje samom sasijom
@@ -54,3 +59,11 @@ Istorija verzija:
         -Obezbjedjivanje komunikacije putem sistema kojim se unosi oznaka za pocetak i kraj komunikacije
         ovim se izbjegava da slucajno poslati ili neki ne poslati bit narusi kompletnu komunikaciju sto se
         nerjetko desavalo i uvjek pri paljenju i gasenju zdojstika
+    -v1.4
+        -Unapredjena komunikacija auto - dyojstik koja je sada two-way 
+        Ostvaruje se putem slanja komandi izmedju uredjaja 
+        uvedena je poruka potvrde koju auto salje kada uspjesno primi komandu
+        -postoji sistem na autu koji je u stanju da detektuje gubitak konekcije
+        nakon cega se prelazi u rezim ponovnog povezivanja ali i sistem kojim se 
+        po potrebi dzojstiku salje signal za rekonektovanje.
+        Dzojstik takodje moze biti u dva stanja a to su povezivanje ili redovni  rezim rada
