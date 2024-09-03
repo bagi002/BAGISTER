@@ -1,5 +1,9 @@
 BAGISTER
 
+!!! PROJEKAT JE NASTAVLJEN U DRUGOJ FORMI !!!
+            LINK: https://github.com/bagi002/BAGISTER2
+    Zbog promjene djlea hardverske konfiguracije i potrebnog unapredjenja na visi nivo
+
 Cilj projekta jeste razvoj malog automobila sa pogonom 4x4 u cilju razvijanja tehnologija upravljive, polu autonomne i autonomne voznje 
 
 Oprema: 
