@@ -24,7 +24,7 @@ void Chassis::fowardLeft(int speed = 255){
     digitalWrite(BLS, LOW);
 
     analogWrite(ELS, 255);
-    delay(5);
+    delay(4);
     analogWrite(ELS, speed);
 }
 
@@ -34,7 +34,7 @@ void Chassis::backLeft(int speed = 255){
     digitalWrite(BLS, HIGH);
 
     analogWrite(ELS, 255);
-    delay(5);
+    delay(4);
     analogWrite(ELS, speed);
 }
 
@@ -44,7 +44,7 @@ void Chassis::fowardRight(int speed = 255){
     digitalWrite(BRS, LOW);
 
     analogWrite(ERS, 255);
-    delay(5);
+    delay(4);
     analogWrite(ERS, speed);
 }
 
@@ -54,7 +54,7 @@ void Chassis::backRight(int speed = 255){
     digitalWrite(BRS, HIGH);
 
     analogWrite(ERS, 255);
-    delay(5);
+    delay(4);
     analogWrite(ERS, speed);
 }
 
@@ -76,23 +76,13 @@ void Chassis::stopCar(){
 }
 
 void Chassis::fowardCar(int speed){
-    fowardLeft(100);
-    delay(20);
-    fowardRight(240);
-    changeSpeedL(200);
-    delay(10);
-    changeSpeedL(speed);
-    changeSpeedR(speed);
+    fowardLeft(speed);
+    fowardRight(speed);
 }
 
 void Chassis::backCar(int speed){
-    backLeft(100);
-    delay(20);
-    backRight(240);
-    changeSpeedL(200);
-    delay(10);
-    changeSpeedR(speed);
-    changeSpeedL(speed);
+    backLeft(speed);
+    backRight(speed);
 }
 
 void  Chassis::changeSpeedL(int speed){

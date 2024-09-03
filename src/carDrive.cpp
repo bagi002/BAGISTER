@@ -149,7 +149,7 @@ void CarDrive::rollCar(int speed, bool rotate){
             motori->changeSpeedR(80);
         }else{
             motori->fowardCar(255);
-            delay(5);
+            delay(3);
             motori->fowardLeft(speed);
             motori->fowardRight(80);
         }
@@ -160,7 +160,7 @@ void CarDrive::rollCar(int speed, bool rotate){
         }else{
 
             motori->fowardCar(255);
-            delay(5);
+            delay(3);
             motori->fowardLeft(80);
             motori->fowardRight(speed);
         }

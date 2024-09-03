@@ -44,7 +44,7 @@ void loop() {
     SerialBT.write(0xCD);
     Serial.println("Povezivanje....");
 
-    delay(250);
+    delay(150);
 
     if(SerialBT.available() >= 6){
       if(SerialBT.read() == 0xAB){
@@ -95,7 +95,7 @@ void loop() {
     SerialBT.write(bit4);    
     SerialBT.write(0xCD);
 
-    delay(100);
+    delay(150);
 
     if(SerialBT.available() >= 6){
       if(SerialBT.read() == 0xAB){
@@ -126,7 +126,7 @@ void loop() {
 
     //Ako vise puta zaredom nemoze da se uspostavi pravilna komunikacija proglasava se prekid komunikacije i 
     //dzojstik inicira ponovno povezivanje i restartovanje komunikacija a u slucaju tezek narusavanja ponovlja se i fizicko povezivanje
-    if(losihKonekcija > 6){
+    if(losihKonekcija > 4){
       conectedStatus = false;
       digitalWrite(indikator, LOW);
       if(SerialBT.isClosed()){

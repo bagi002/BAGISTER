@@ -70,3 +70,9 @@ Istorija verzija:
     -v1.4.1
         -Dodati komentari na dijelove koda
         -izmjenjeni minimalno pojedini dealy-i u chassis.h i carDrive.h
+        -privremeno su smanjene pojedine performanse drajvera za potrebe trenutnog 
+    -v1.5.0
+        -Izbaceni delay-i u main djelu koda
+        -Sihronizacija dogadjaja sada se vrsi pomocu biblioteke TaskScheduler.h
+        -Omogucena sihronizacija u kojoj se razliciti dijelovi koda pokrecu sa razlicitom ucestalosti
+        -Postignut brzi odgovor sistema imitacijom neke frste RTOSa
