@@ -141,16 +141,15 @@ void CarDrive::siren(int time){
     digitalWrite(sirenPin, LOW);
 }
 
+// Potrebno sto prije refaktorisati funkciju da se ucini vise upotrebljivom
 void CarDrive::rollCar(int speed, bool rotate){
     if(rotate){
         if(left == FOWARDCAR && right == FOWARDCAR){
             motori->changeSpeedL(speed);
             motori->changeSpeedR(80);
         }else{
-            motori->stopCar();
-            delay(50);
             motori->fowardCar(255);
-            delay(60);
+            delay(5);
             motori->fowardLeft(speed);
             motori->fowardRight(80);
         }
@@ -159,10 +158,9 @@ void CarDrive::rollCar(int speed, bool rotate){
             motori->changeSpeedR(speed);
             motori->changeSpeedL(80);
         }else{
-            motori->stopCar();
-            delay(50);
+
             motori->fowardCar(255);
-            delay(60);
+            delay(5);
             motori->fowardLeft(80);
             motori->fowardRight(speed);
         }

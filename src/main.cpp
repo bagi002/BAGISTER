@@ -20,7 +20,9 @@ void setup() {
 void loop() {
 
 
-if (Serial.available() >= 6) {
+if (Serial.available() >= 6) { 
+
+    //ucitavanje primljene poruke njena obrada i provjera valjanosti
     unsigned long x;
     byte mask1 = Serial.read();
     byte byte1 = Serial.read();
@@ -37,6 +39,11 @@ if (Serial.available() >= 6) {
       }  
     }
 
+// u slucaju da je trenutno uspostavljena komunikacija provjerava se da li je primljena poruka 
+// zahtjev za ponovnu uspostavu komunikacije ako jeste prekida se komunikacija i ide u ponovnu uspostavu iste
+// u suprotnom primljena poruka smatra se komandom i prosljedi drajveru za kontrolu auta(motora) i vrqca signal o uspjesnom prijemu
+//AKo nema uspostavljene komunikacije onda se ceka poruka sa siggnalom za uspostavu iste
+//Ovaj modul detektuje i lose komunikacije na koje ako se ponavljaju biva odgovoreno 
     if(conected){
       if(x == 0x11223344){
         conected = false;
@@ -73,6 +80,7 @@ if (Serial.available() >= 6) {
     } 
   }
 
+  // u slucaju znacajno narusene komunikacije te 5 zaredom lose primljenih poruka inicira se signal dzojstiku za restartovanje komunikacije 0F0F0F0F
   if(conectionLost > 15){
     conected = false;
     car->reeadMessage(0x00000000);

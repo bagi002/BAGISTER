@@ -67,3 +67,6 @@ Istorija verzija:
         nakon cega se prelazi u rezim ponovnog povezivanja ali i sistem kojim se 
         po potrebi dzojstiku salje signal za rekonektovanje.
         Dzojstik takodje moze biti u dva stanja a to su povezivanje ili redovni  rezim rada
+    -v1.4.1
+        -Dodati komentari na dijelove koda
+        -izmjenjeni minimalno pojedini dealy-i u chassis.h i carDrive.h

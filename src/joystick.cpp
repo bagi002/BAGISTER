@@ -31,6 +31,10 @@ void setup() {
 void loop() {
   //New version code with two-way comunication
 
+
+//Dio koda zasluzan da kada ne postoji komunikacija ponovo uspostavi istu takosto salje signal za pocetak komunkacije
+//i ceka odgovor sve dok ne dobije potvrdu uspjesne dvosmjerne komuniakcije sa vozilom u slucaju nepotpunih pogresnih i
+//i losih komunikacija cisti dolazni bafer da omuguci uspostavu ponovne komunikacije.
   while(!conectedStatus){
     SerialBT.write(0xAB);
     SerialBT.write(0x11);
@@ -61,6 +65,9 @@ void loop() {
     }
   }
 
+//Dio koda odgovoran za komunikaciju sa vozilom kada je komunikacija uspostavljena te za prijam potvrde slanja poruke autu
+//Takodje moze primiti zahtjev auta za ponovnom komunikacijom ali idetektovati neuspjeh u slanju poruke ili drusgu vrstu smetnji
+//sto pomaze u detektciji losih konekcija
 
   while(conectedStatus){
     int x = analogRead(xOsa) - 2047;
@@ -117,6 +124,8 @@ void loop() {
       losihKonekcija++;
     }
 
+    //Ako vise puta zaredom nemoze da se uspostavi pravilna komunikacija proglasava se prekid komunikacije i 
+    //dzojstik inicira ponovno povezivanje i restartovanje komunikacija a u slucaju tezek narusavanja ponovlja se i fizicko povezivanje
     if(losihKonekcija > 6){
       conectedStatus = false;
       digitalWrite(indikator, LOW);
